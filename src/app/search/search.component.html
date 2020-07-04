@@ -1,0 +1,5 @@
+<section class="container mt-5">
+    <input type="text" id="booksInput" class="form-control" appDebouncing [debounceTime]="700"
+        (debounceClick)="fetchData($event.target.value)" placeholder="Search a Book..">
+    <app-books></app-books>
+</section>
