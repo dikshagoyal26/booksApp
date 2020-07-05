@@ -1,0 +1,42 @@
+<div class="card mt-5">
+    <div class="mx-auto">
+        <img class="card-img-top" [src]="book.volumeInfo.imageLinks.thumbnail" alt="{{book.volumeInfo.title}}">
+        <div class="card-body">
+            <h5 class="card-title">{{book.volumeInfo.title}}</h5>
+            <p class="card-text" *ngIf="book.volumeInfo.subtitle && book.volumeInfo.subtitle.length < 38">
+                {{book.volumeInfo.subtitle}}</p>
+            <p *ngIf="book.saleInfo && book.saleInfo.retailPrice">Price : {{book.saleInfo.retailPrice.amount}}</p>
+            <a href="{{book.saleInfo.buyLink}}" class="btn btn-info">Buy Now</a>
+        </div>
+        <div class="card-footer" (click)="viewDetails(book,bookDetails)">
+            View Details
+        </div>
+    </div>
+</div>
+<ng-template #bookDetails>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{book.volumeInfo.title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <h5>{{book.volumeInfo.subtitle}}</h5>
+        <p>Authors:
+            <b>{{book.authors}}</b>
+        </p>
+        <div>Rating {{book.volumeInfo.averageRating}}
+            <div class="stars-outer">
+                <div class="stars-inner" [ngStyle]="{'width':stars}"></div>
+            </div>
+        </div>
+        <p>Pages: {{book.volumeInfo.pageCount}}</p>
+        <p>publisher: {{book.volumeInfo.publisher}}</p>
+        <p>publishedDate: {{book.volumeInfo.publishedDate}}</p>
+
+        <p>{{book.volumeInfo.description}}</p>
+        <a href="{{book.saleInfo.buyLink}}" class="btn btn-info">Buy Now</a>
+
+    </div>
+</ng-template>

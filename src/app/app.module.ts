@@ -8,6 +8,8 @@ import { SearchComponent } from './search/search.component';
 import { SharedService } from './shared.service';
 import { HttpClientModule } from "@angular/common/http";
 import { DebouncingDirective } from './debouncing.directive';
+import { BooksDisplayComponent } from './books/books-display/books-display.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { DebouncingDirective } from './debouncing.directive';
     HeaderComponent,
     BooksComponent,
     SearchComponent,
-    DebouncingDirective
+    DebouncingDirective,
+    BooksDisplayComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

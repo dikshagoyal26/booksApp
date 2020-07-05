@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-books',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
+  books: any = {};
 
-  constructor() { }
+  constructor(private sharedService: SharedService) {
+    sharedService.apiData.subscribe(books => this.books = books)
+  }
 
   ngOnInit(): void {
   }

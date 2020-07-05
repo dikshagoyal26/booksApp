@@ -36,17 +36,7 @@ export class SearchComponent implements OnInit {
   getData(val) {
     console.log("fetching", val)
     if (val) {
-      this.sharedService.fetchData(val).subscribe((response: any) => {
-        if (response) {
-          console.log({ response })
-          // bindEvents(JSON.stringify(json))
-          // carddeck.style.display = "block"
-          // books.innerHtml = 'hey' //JSON.stringify(json)
-        } else {
-          alert("HTTP-Error: " + response.status);
-          console.log({ response })
-        }
-      })
+      this.sharedService.fetchData(val)
     }
 
 
