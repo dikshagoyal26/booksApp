@@ -10,6 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { DebouncingDirective } from './debouncing.directive';
 import { BooksDisplayComponent } from './books/books-display/books-display.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { LimitPipe } from './limit.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BooksComponent,
     SearchComponent,
     DebouncingDirective,
-    BooksDisplayComponent
+    BooksDisplayComponent,
+    LimitPipe
   ],
   imports: [
     BrowserModule,

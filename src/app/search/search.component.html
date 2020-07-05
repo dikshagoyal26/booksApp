@@ -1,6 +1,6 @@
 <section class="container-fluid mt-5">
-    <div class="container">
-        <input type="text" id="booksInput" class="form-control" appDebouncing [debounceTime]="700"
+    <div class="container" style="max-width: 720px;">
+        <input type="text" id="booksInput" class="form-control" appDebouncing [debounceTime]="300"
             (debounceClick)="fetchData($event.target.value)" placeholder="Search a Book..">
     </div>
     <div class="container-fluid ">

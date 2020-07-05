@@ -9,22 +9,19 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class BooksDisplayComponent implements OnInit {
   @Input() book: any;
   public modalRef: BsModalRef;
-  public dispbook: any
   starTotal = 5;
   stars: any
   constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
-  viewDetails(book: any, template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'gray modal-lg' })
-    );
-    this.book.authors = book.volumeInfo.authors.join(' , ')
-    this.dispbook = book
-    let rating = book.volumeInfo.averageRating
+  viewDetails(template: TemplateRef<any>) {
+    this.book.authors = this.book.volumeInfo.authors.join(' , ')
+    let rating = this.book.volumeInfo.averageRating
     const starPercentage = (rating / this.starTotal) * 100;
     const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
     this.stars = starPercentageRounded
-
+    this.modalRef = this.modalService.show(template, Object.assign({}, { class: 'gray modal-lg' })
+    );
   }
 }

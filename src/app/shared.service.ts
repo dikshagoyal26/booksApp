@@ -11,17 +11,15 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
   fetchData(val): any {
-    console.log({ val })
     this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${val}`).subscribe((response: any) => {
       if (response) {
-        console.log({ response })
         this.setData(response)
         // bindEvents(JSON.stringify(json))
         // carddeck.style.display = "block"
         // books.innerHtml = 'hey' //JSON.stringify(json)
       }
     }, (err) => {
-      alert("HTTP-Error: " + err);
+      alert("Something went wrong!!! ");
       console.log({ err })
     })
   }
